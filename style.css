@@ -12,6 +12,11 @@ body {
     overflow-x: hidden;
 }
 
+/* Fix for ScrollReveal potential flickering */
+.reveal, .reveal-left, .reveal-right {
+    visibility: hidden;
+}
+
 #header {
     width: 100%;
     height: 100vh;
@@ -34,7 +39,7 @@ nav {
 
 .logo {
     width: 140px;
-    z-index: 10; /* Keeps logo above background but manageable */
+    z-index: 10;
 }
 
 nav ul li {
@@ -367,36 +372,20 @@ form input, form textarea {
     color: #ff004f;
 }
 
-/* --- CSS for small screens --- */
+/* --- Responsive CSS --- */
 nav .fa-solid {
     display: none;
 }
 
 @media only screen and (max-width: 600px) {
     #header {
-        /* Adjusted background to ensure logo/text area is clear */
         background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(images/phone-background.png);
         background-position: top center;
     }
-    
-    .logo {
-        width: 100px; /* Smaller logo for mobile */
-    }
-
-    .header-text {
-        margin-top: 60%; /* Adjusted so text doesn't overlap logo */
-        font-size: 18px;
-        text-align: center;
-    }
-    .header-text h1 {
-        font-size: 40px;
-    }
-    
-    nav .fa-solid {
-        display: block;
-        font-size: 25px;
-        cursor: pointer;
-    }
+    .logo { width: 100px; }
+    .header-text { margin-top: 60%; font-size: 18px; text-align: center; }
+    .header-text h1 { font-size: 40px; }
+    nav .fa-solid { display: block; font-size: 25px; cursor: pointer; }
     nav ul {
         background: #ff004f;
         position: fixed;
@@ -408,36 +397,11 @@ nav .fa-solid {
         z-index: 2;
         transition: right 0.5s;
     }
-    nav ul li {
-        display: block;
-        margin: 25px;
-    }
-    
-    .sub-title {
-        font-size: 35px;
-        text-align: center;
-    }
-
-    .description-text {
-        font-size: 15px;
-        text-align: center;
-        padding: 0 10px;
-    }
-
-    .about-col-1, .about-col-2, .contact-left, .contact-right {
-        flex-basis: 100%;
-    }
-    
-    .tab-titles {
-        justify-content: center;
-    }
-    
-    .tab-links {
-        margin-right: 20px;
-        font-size: 16px;
-    }
-
-    .services-list div, .work {
-        margin: 0 10px;
-    }
+    nav ul li { display: block; margin: 25px; }
+    .sub-title { font-size: 35px; text-align: center; }
+    .description-text { font-size: 15px; text-align: center; padding: 0 10px; }
+    .about-col-1, .about-col-2, .contact-left, .contact-right { flex-basis: 100%; }
+    .tab-titles { justify-content: center; }
+    .tab-links { margin-right: 20px; font-size: 16px; }
+    .services-list div, .work { margin: 0 10px; }
 }
